@@ -1,0 +1,28 @@
+# Maven build output
+target/
+
+# Compiled class files (stray)
+*.class
+
+# macOS
+.DS_Store
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.eclipse
+.settings/
+.classpath
+.project
+
+# Logs
+*.log
+logs/
+
+# Uploaded files (runtime data, not source)
+src/main/webapp/uploads/
+
+# Environment / secrets
+*.env
+*.properties.local
