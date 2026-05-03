@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>P2P File Sharing Application</name>
-    <description>High-Speed P2P File Sharing using Java Servlet, JSP, JDBC, Multithreading</description>
+    <name>LocalDrop — LAN File Sharing</name>
+    <description>Centralised LAN file sharing web app built with Java Servlets, JSP, JDBC, HikariCP, and MySQL.</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -55,6 +55,24 @@
             <version>8.3.0</version>
         </dependency>
 
+        <!-- HikariCP — JDBC connection pool -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+
+        <!-- SLF4J API + Logback implementation -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.3</version>
+        </dependency>
 
     </dependencies>
 

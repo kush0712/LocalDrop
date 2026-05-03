@@ -6,24 +6,23 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="P2PShare — High-speed peer-to-peer file sharing dashboard"/>
-    <title>Dashboard — P2PShare</title>
+    <meta name="description" content="LocalDrop — High-speed local network file sharing dashboard"/>
+    <title>Dashboard — LocalDrop</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📁</text></svg>"/>
 </head>
 <body>
 
 <!-- ── Navbar ──────────────────────────────────────────── -->
 <nav class="navbar">
     <a href="${pageContext.request.contextPath}/" class="navbar-brand">
-        <span class="nav-logo">⚡</span>
-        <span class="nav-title">P2P<span>Share</span></span>
+        <span class="nav-logo">📁</span>
+        <span class="nav-title">Local<span>Drop</span></span>
     </a>
     <ul class="navbar-nav">
         <li><a href="${pageContext.request.contextPath}/"       class="nav-link active">🏠 Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/files"  class="nav-link">📁 Files</a></li>
         <li><a href="${pageContext.request.contextPath}/upload" class="nav-link">⬆️ Upload</a></li>
-        <li><a href="${pageContext.request.contextPath}/peers"  class="nav-link">🌐 Peers</a></li>
         <li><a href="${pageContext.request.contextPath}/transfers" class="nav-link">
             ↔️ Transfers
             <c:if test="${activeCount > 0}"><span class="nav-badge">${activeCount}</span></c:if>
@@ -37,7 +36,7 @@
     <!-- Page header -->
     <div class="page-header">
         <h1 class="page-title">Network Dashboard</h1>
-        <p class="page-subtitle">Real-time overview of your P2P file sharing network</p>
+        <p class="page-subtitle">Real-time overview of your local file sharing network</p>
     </div>
 
     <!-- Error alert -->
@@ -54,13 +53,7 @@
                 <div class="stat-label">Shared Files</div>
             </div>
         </div>
-        <div class="stat-card">
-            <div class="stat-icon cyan">🌐</div>
-            <div>
-                <div class="stat-value">${onlinePeers}</div>
-                <div class="stat-label">Online Peers</div>
-            </div>
-        </div>
+
         <div class="stat-card">
             <div class="stat-icon purple">↔️</div>
             <div>
@@ -74,6 +67,23 @@
                 <div class="stat-value">${storageBytes}</div>
                 <div class="stat-label">Total Storage</div>
             </div>
+        </div>
+    </div>
+
+    <!-- ── LAN Share Banner ──────────────────────────────────── -->
+    <div class="share-banner" style="margin: 1.5rem 0;">
+        <div class="share-banner-icon">📡</div>
+        <div style="flex:1;min-width:0;">
+            <div class="share-banner-title">Share with your local network</div>
+            <div class="share-banner-subtitle">
+                Anyone on the same Wi‑Fi can open this URL to browse and download files
+            </div>
+        </div>
+        <div class="share-url-group">
+            <code id="shareUrl" class="share-url">${lanUrl}</code>
+            <button class="btn btn-ghost btn-sm" id="copyBtn" onclick="copyLanUrl()">
+                📋 Copy
+            </button>
         </div>
     </div>
 
@@ -187,7 +197,7 @@
     <!-- Quick Actions -->
     <div class="card" style="margin-top:0;">
         <div class="card-header">
-            <h2 class="card-title">⚡ Quick Actions</h2>
+            <h2 class="card-title">🚀 Quick Actions</h2>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
             <a href="${pageContext.request.contextPath}/upload" class="btn btn-primary btn-lg">
@@ -195,9 +205,6 @@
             </a>
             <a href="${pageContext.request.contextPath}/files" class="btn btn-ghost btn-lg">
                 📂 Browse Files
-            </a>
-            <a href="${pageContext.request.contextPath}/peers/register" class="btn btn-ghost btn-lg">
-                🌐 Join Network
             </a>
             <a href="${pageContext.request.contextPath}/transfers" class="btn btn-ghost btn-lg">
                 ↔️ View Transfers
@@ -210,6 +217,19 @@
 <!-- ── Auto-refresh stats every 30s ──────────────────────── -->
 <script>
     setTimeout(() => location.reload(), 30000);
+
+    function copyLanUrl() {
+        const url = document.getElementById('shareUrl').innerText;
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('copyBtn');
+            btn.innerText = '✓ Copied';
+            btn.style.color = 'var(--success)';
+            setTimeout(() => {
+                btn.innerText = '📋 Copy';
+                btn.style.color = '';
+            }, 2000);
+        });
+    }
 </script>
 
 </body>

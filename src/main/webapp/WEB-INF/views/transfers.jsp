@@ -6,22 +6,21 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Monitor live file transfer progress in the P2P network"/>
-    <title>Transfers — P2PShare</title>
+    <meta name="description" content="Monitor live file transfer progress in the local network"/>
+    <title>Transfers — LocalDrop</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
 
 <nav class="navbar">
     <a href="${pageContext.request.contextPath}/" class="navbar-brand">
-        <span class="nav-logo">⚡</span>
-        <span class="nav-title">P2P<span>Share</span></span>
+        <span class="nav-logo">📁</span>
+        <span class="nav-title">Local<span>Drop</span></span>
     </a>
     <ul class="navbar-nav">
         <li><a href="${pageContext.request.contextPath}/"          class="nav-link">🏠 Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/files"     class="nav-link">📁 Files</a></li>
         <li><a href="${pageContext.request.contextPath}/upload"    class="nav-link">⬆️ Upload</a></li>
-        <li><a href="${pageContext.request.contextPath}/peers"     class="nav-link">🌐 Peers</a></li>
         <li><a href="${pageContext.request.contextPath}/transfers" class="nav-link active">↔️ Transfers</a></li>
     </ul>
 </nav>
@@ -72,7 +71,6 @@
                                     <th>ID</th>
                                     <th>File</th>
                                     <th>Type</th>
-                                    <th>Peer</th>
                                     <th>Progress</th>
                                     <th>Status</th>
                                     <th>Duration</th>
@@ -96,7 +94,6 @@
                                             </c:otherwise>
                                         </c:choose>
                                     </td>
-                                    <td><c:out value="${t.peerName}"/></td>
                                     <td style="min-width:120px;">
                                         <div class="progress-bar-wrap">
                                             <div class="progress-bar-fill"
@@ -144,7 +141,6 @@
                                 <th>ID</th>
                                 <th>File</th>
                                 <th>Type</th>
-                                <th>Peer</th>
                                 <th>Size</th>
                                 <th>Progress</th>
                                 <th>Status</th>
@@ -170,7 +166,6 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td><c:out value="${t.peerName}"/></td>
                                 <td class="text-mono" style="font-size:0.78rem;">${t.fileSize}</td>
                                 <td>
                                     <div style="display:flex;align-items:center;gap:8px;">

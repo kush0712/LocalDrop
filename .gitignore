@@ -26,3 +26,10 @@ src/main/webapp/uploads/
 # Environment / secrets
 *.env
 *.properties.local
+
+# DB credentials — never commit
+src/main/resources/db.properties
+
+# Scratch / test files
+DBTest.java
+DBTest.class

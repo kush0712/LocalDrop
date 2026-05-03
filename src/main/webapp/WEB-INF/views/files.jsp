@@ -6,22 +6,21 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Browse and download shared files from the P2P network"/>
-    <title>Shared Files — P2PShare</title>
+    <meta name="description" content="Browse and download shared files from the local network"/>
+    <title>Shared Files — LocalDrop</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
 
 <nav class="navbar">
     <a href="${pageContext.request.contextPath}/" class="navbar-brand">
-        <span class="nav-logo">⚡</span>
-        <span class="nav-title">P2P<span>Share</span></span>
+        <span class="nav-logo">📁</span>
+        <span class="nav-title">Local<span>Drop</span></span>
     </a>
     <ul class="navbar-nav">
         <li><a href="${pageContext.request.contextPath}/"          class="nav-link">🏠 Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/files"     class="nav-link active">📁 Files</a></li>
         <li><a href="${pageContext.request.contextPath}/upload"    class="nav-link">⬆️ Upload</a></li>
-        <li><a href="${pageContext.request.contextPath}/peers"     class="nav-link">🌐 Peers</a></li>
         <li><a href="${pageContext.request.contextPath}/transfers" class="nav-link">↔️ Transfers</a></li>
     </ul>
 </nav>
@@ -29,7 +28,7 @@
 <main class="container">
     <div class="page-header">
         <h1 class="page-title">Shared Files</h1>
-        <p class="page-subtitle">Browse and download files from the P2P network</p>
+        <p class="page-subtitle">Browse and download files from the local network</p>
     </div>
 
     <!-- Alerts -->
@@ -92,7 +91,6 @@
                                 <th>File</th>
                                 <th>Type</th>
                                 <th>Size</th>
-                                <th>Shared By</th>
                                 <th>Downloads</th>
                                 <th>Uploaded</th>
                                 <th>Hash (SHA-256)</th>
@@ -123,13 +121,6 @@
                                     </span>
                                 </td>
                                 <td class="text-mono">${f.formattedSize}</td>
-                                <td>
-                                    <div style="display:flex;align-items:center;gap:6px;">
-                                        <span style="width:8px;height:8px;border-radius:50%;
-                                                     background:var(--accent-green);flex-shrink:0;"></span>
-                                        <c:out value="${f.peerName}"/>
-                                    </div>
-                                </td>
                                 <td>
                                     <span class="badge badge-success">${f.downloadCount}</span>
                                 </td>

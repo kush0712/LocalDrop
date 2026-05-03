@@ -5,22 +5,21 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Upload files to the P2P network"/>
-    <title>Upload File — P2PShare</title>
+    <meta name="description" content="Upload files to the local network"/>
+    <title>Upload File — LocalDrop</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
 
 <nav class="navbar">
     <a href="${pageContext.request.contextPath}/" class="navbar-brand">
-        <span class="nav-logo">⚡</span>
-        <span class="nav-title">P2P<span>Share</span></span>
+        <span class="nav-logo">📁</span>
+        <span class="nav-title">Local<span>Drop</span></span>
     </a>
     <ul class="navbar-nav">
         <li><a href="${pageContext.request.contextPath}/"          class="nav-link">🏠 Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/files"     class="nav-link">📁 Files</a></li>
         <li><a href="${pageContext.request.contextPath}/upload"    class="nav-link active">⬆️ Upload</a></li>
-        <li><a href="${pageContext.request.contextPath}/peers"     class="nav-link">🌐 Peers</a></li>
         <li><a href="${pageContext.request.contextPath}/transfers" class="nav-link">↔️ Transfers</a></li>
     </ul>
 </nav>
@@ -28,7 +27,7 @@
 <main class="container">
     <div class="page-header">
         <h1 class="page-title">Upload File</h1>
-        <p class="page-subtitle">Share a file with the P2P network</p>
+        <p class="page-subtitle">Share a file with the local network</p>
     </div>
 
     <c:if test="${not empty error}">
@@ -44,7 +43,7 @@
                 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
                     <span class="drop-zone-icon">📂</span>
                     <p class="drop-zone-text" id="dropZoneText">Drop file here or click to browse</p>
-                    <p class="drop-zone-hint">Max file size: 512 MB &nbsp;|&nbsp; Any file type accepted</p>
+                    <p class="drop-zone-hint">Max file size: 500 MB &nbsp;|&nbsp; Any file type accepted</p>
                     <input type="file" id="fileInput" name="file" style="display:none"
                            onchange="handleFileSelect(this)"/>
                 </div>
@@ -91,7 +90,7 @@
             <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
                 <li style="display:flex;gap:10px;color:var(--text-secondary);font-size:0.875rem;">
                     <span style="color:var(--accent-green);">✓</span>
-                    Files are stored and shared across the P2P network
+                    Files are stored and shared across the local network
                 </li>
                 <li style="display:flex;gap:10px;color:var(--text-secondary);font-size:0.875rem;">
                     <span style="color:var(--accent-green);">✓</span>
@@ -99,11 +98,11 @@
                 </li>
                 <li style="display:flex;gap:10px;color:var(--text-secondary);font-size:0.875rem;">
                     <span style="color:var(--accent-green);">✓</span>
-                    Transfers are handled by a multithreaded pool (up to 10 concurrent)
+                    Files are stored on the server and accessible to anyone on the local network
                 </li>
                 <li style="display:flex;gap:10px;color:var(--text-secondary);font-size:0.875rem;">
                     <span style="color:var(--accent-green);">✓</span>
-                    Maximum file size: 512 MB per file
+                    Maximum file size: 500 MB per file
                 </li>
             </ul>
         </div>
@@ -201,7 +200,6 @@ form.addEventListener('submit', ev => {
         }
     };
 
-    ev.preventDefault();
     xhr.send(new FormData(form));
 });
 </script>

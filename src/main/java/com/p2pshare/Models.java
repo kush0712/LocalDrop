@@ -4,34 +4,6 @@ import java.time.LocalDateTime;
 
 public class Models {
 
-    public static class Peer {
-        private int peerId;
-        private String peerName;
-        private String ipAddress;
-        private int port;
-        private String status;
-        private LocalDateTime lastSeen;
-        private LocalDateTime joinedAt;
-
-        public int getPeerId() { return peerId; }
-        public void setPeerId(int peerId) { this.peerId = peerId; }
-        public String getPeerName() { return peerName; }
-        public void setPeerName(String peerName) { this.peerName = peerName; }
-        public String getIpAddress() { return ipAddress; }
-        public void setIpAddress(String ipAddress) { this.ipAddress = ipAddress; }
-        public int getPort() { return port; }
-        public void setPort(int port) { this.port = port; }
-        public String getStatus() { return status; }
-        public void setStatus(String status) { this.status = status; }
-        public LocalDateTime getLastSeen() { return lastSeen; }
-        public void setLastSeen(LocalDateTime lastSeen) { this.lastSeen = lastSeen; }
-        public LocalDateTime getJoinedAt() { return joinedAt; }
-        public void setJoinedAt(LocalDateTime joinedAt) { this.joinedAt = joinedAt; }
-        public String getFormattedJoinedAt() {
-            return joinedAt != null ? joinedAt.format(java.time.format.DateTimeFormatter.ofPattern("dd MMM")) : "";
-        }
-    }
-
     public static class SharedFile {
         private long fileId;
         private String originalName;
@@ -41,8 +13,6 @@ public class Models {
         private String fileHash;
         private LocalDateTime uploadTime;
         private int downloadCount;
-        private int peerId;
-        private String peerName;
         private boolean active;
 
         public long getFileId() { return fileId; }
@@ -61,10 +31,6 @@ public class Models {
         public void setUploadTime(LocalDateTime uploadTime) { this.uploadTime = uploadTime; }
         public int getDownloadCount() { return downloadCount; }
         public void setDownloadCount(int downloadCount) { this.downloadCount = downloadCount; }
-        public int getPeerId() { return peerId; }
-        public void setPeerId(int peerId) { this.peerId = peerId; }
-        public String getPeerName() { return peerName; }
-        public void setPeerName(String peerName) { this.peerName = peerName; }
         public boolean isActive() { return active; }
         public void setActive(boolean active) { this.active = active; }
 
@@ -83,8 +49,6 @@ public class Models {
         private long transferId;
         private long fileId;
         private String originalName;
-        private int peerId;
-        private String peerName;
         private String transferType;
         private LocalDateTime startTime;
         private LocalDateTime endTime;
@@ -99,10 +63,6 @@ public class Models {
         public void setFileId(long fileId) { this.fileId = fileId; }
         public String getOriginalName() { return originalName; }
         public void setOriginalName(String originalName) { this.originalName = originalName; }
-        public int getPeerId() { return peerId; }
-        public void setPeerId(int peerId) { this.peerId = peerId; }
-        public String getPeerName() { return peerName; }
-        public void setPeerName(String peerName) { this.peerName = peerName; }
         public String getTransferType() { return transferType; }
         public void setTransferType(String transferType) { this.transferType = transferType; }
         public LocalDateTime getStartTime() { return startTime; }

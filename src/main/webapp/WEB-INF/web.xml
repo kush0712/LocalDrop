@@ -5,8 +5,8 @@
                              https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-    <display-name>P2P File Sharing Application</display-name>
-    <description>High-Speed P2P File Sharing using Java Servlet, JSP, JDBC, Multithreading</description>
+    <display-name>LocalDrop</display-name>
+    <description>Centralised LAN file sharing web app built with Java Servlets, JSP, JDBC, HikariCP, and MySQL.</description>
 
     <!-- ── Session Configuration ───────────────────────── -->
     <session-config>
